@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="card" style="margin-top: 5%;">
+        <div class="card-header">
+            <h3 class="text-center">Enrolar Tarjeta</h3>
+        </div>
+        <div class="card-body">
+
+           <form [formGroup]="formEnrolarTarjeta" (submit)="Enrolar()">
+
+                <div class="form-group" style="width: 50%; margin-left: 25%; text-align: center; margin-top: 2%;">
+                    <label for="" style="margin-block-end: 1%;">Número Validación</label>
+                    <input type="text" class="form-control" id="numeroValidacion" formControlName="numeroValidacion" [controlErrorsTpl]="mensajeValidacion">
+                    <ng-container *ngTemplateOutlet="mensajeValidacion;context:{error:formEnrolarTarjeta?.get('numeroValidacion')?.errors}"></ng-container>
+                </div>
+                <div class="form-group" style="width: 50%; margin-left: 25%; text-align: center; margin-top: 2%;">
+                    <label for="" style="margin-block-end: 1%;">Identificador</label>
+                    <input type="text" class="form-control" id="identificador" formControlName="identificador" [controlErrorsTpl]="mensajeIden">
+                    <ng-container *ngTemplateOutlet="mensajeIden;context:{error:formEnrolarTarjeta?.get('identificador')?.errors}"></ng-container>
+                </div>
+                
+                <div class="form-group" style="width: 50%; margin-left: 25%; text-align: center; margin-top: 2%;">
+                    <button class="btn btn-success">Enrolar</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <ng-template  #mensajeValidacion let-error="error">
+        <div *ngIf="error?.pattern?.requiredPattern">
+            No Cumples Con La Cantidad De Caracteres (3)
+        </div>
+    </ng-template>
+    <ng-template  #mensajeIden let-error="error">
+        <div *ngIf="error?.pattern?.requiredPattern">
+            No Cumples Con La Cantidad De Caracteres (3)
+        </div>
+    </ng-template>
+</div>

@@ -18,7 +18,13 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "@ngneat/error-tailor": "^2.2.2",
+    "@popperjs/core": "^2.11.6",
+    "@swimlane/ngx-datatable": "^20.1.0",
+    "bootstrap": "^5.2.2",
+    "jquery": "^3.6.1",
     "rxjs": "~7.5.0",
+    "sweetalert2": "^11.6.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

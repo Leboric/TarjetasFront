@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="card" style="margin-top: 5%;">
+        <div class="card-header">
+            <h3 class="text-center">Tarjetas</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>Referencia</th>
+                        <th>Identificador</th>
+                        <th>Total</th>
+                        <th>Estado</th>
+                        <th>Dirección Compra</th>
+                        <th>Fecha Creación</th>
+                        <th>fecha Modificacion</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let transa of listaTransacciones" class="text-center">
+                        <td>{{ transa.numeroReferencia}}</td>
+                        <td>{{ transa.identificador}}</td>
+                        <td>{{ transa.total}}</td>
+                        <td>{{ transa.estado}}</td>
+                        <td>{{ transa.direccionCompra}}</td>
+                        <td>{{ transa.fechaCreacion}}</td>
+                        <td>{{ transa.fechaModificacion}}</td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+            <a href="pagos" class="btn btn-primary" style="margin-left: 35%; display: inline-block;">Realizar Pago</a>
+            <a href="pagos/cancelar" class="btn btn-danger" style="margin-left: 5%; display: inline-block;">Cancelar Pago</a>
+        </div>
+    </div>
+</div>

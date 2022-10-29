@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="card" style="margin-top: 5%;">
+        <div class="card-header">
+            <h3 class="text-center">Registrar Tarjetas</h3>
+        </div>
+        <div class="card-body">
+
+            <form [formGroup]="formTarjeta" (submit)="Guardar()" errorTailor>
+
+                <div class="form-group" style="width: 50%; margin-left: 25%; text-align: center; margin-top: 2%;">
+                    <label for="" style="margin-block-end: 1%;">Titular</label>
+                    <input type="text" class="form-control" id="titular" formControlName="titular">
+                    
+                </div>
+                <div class="form-group" style="width: 50%; margin-left: 25%; text-align: center; margin-top: 2%;">
+                    <label for="" style="margin-block-end: 1%;">Cedula</label>
+                    <input type="number" class="form-control" id="cedula" formControlName="cedula" [controlErrorsTpl]="mensajeCedula">
+                    <ng-container *ngTemplateOutlet="mensajeCedula;context:{error:formTarjeta?.get('cedula')?.errors}"></ng-container>
+                </div>
+                <div class="form-group" style="width: 50%; margin-left: 25%; text-align: center; margin-top: 2%;">
+                    <label for="" style="margin-block-end: 1%;">Telefono</label>
+                    <input type="number" class="form-control" id="telefono" formControlName="telefono" [controlErrorsTpl]="mensajeTelefono">
+                    <ng-container *ngTemplateOutlet="mensajeTelefono;context:{error:formTarjeta?.get('telefono')?.errors}"></ng-container>
+                </div>
+                <div class="form-group" style="width: 50%; margin-left: 25%; text-align: center; margin-top: 2%;">
+                    <label for="" style="margin-block-end: 1%;">Tipo</label>
+                    <select class="form-control" id="tipo" formControlName="tipo">
+                        <option value="">Seleccionar</option>
+                        <option value="CREDITO">Credito</option>
+                        <option value="DEBITO">Debito</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group" style="width: 50%; margin-left: 25%; text-align: center; margin-top: 2%;">
+                    <label for="" style="margin-block-end: 1%;">PAN</label>
+                    <input type="text" class="form-control" id="pan" formControlName="pan">
+                </div>
+                <div class="form-group" style="width: 50%; margin-left: 25%; text-align: center; margin-top: 2%;">
+                    <button class="btn btn-success">Guardar</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <ng-template  #mensajeCedula let-error="error">
+        <div *ngIf="error?.pattern?.requiredPattern">
+            No Cumples Con La Cantidad De Caracteres (10-15)
+        </div>
+    </ng-template>
+    <ng-template  #mensajeTelefono let-error="error">
+        <div *ngIf="error?.pattern?.requiredPattern">
+            No Cumples Con La Cantidad De Caracteres (10)
+        </div>
+    </ng-template>
+</div>
